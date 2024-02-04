@@ -30,4 +30,4 @@ assert multisanta('^v') == 3
 assert multisanta('^>v<') == 3
 assert multisanta('^v^v^v^v^v') == 11
 
-multisanta(open('inputs/day03.input.txt').read())
+print(multisanta(open('inputs/day03.input.txt').read()))

@@ -21,4 +21,4 @@ assert santa('>') == 2
 assert santa('^>v<') == 4
 assert santa('^v^v^v^v^v') == 2
 
-santa(open('inputs/day03.input.txt').read())
+print(santa(open('inputs/day03.input.txt').read()))
