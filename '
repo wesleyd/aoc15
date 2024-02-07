@@ -1,0 +1,39 @@
+#!/usr/bin/env python3
+
+example_input = r"""
+""
+"abc"
+"aaa\"aaa"
+"\x27"
+"""
+
+def count1(s):
+    n = 0
+    i = 0
+    while i < len(s)-2:
+        i += 1
+        if s[i] != '\\':
+            if s[i+1] == '\\':
+            n += 1
+            continue
+        if s[i+1] == 'x':
+            n -= 2
+    return n
+
+assert count1('""') == 0
+assert count1('"abc"') == 3
+assert count1('"\x27"') == 1
+assert count1('"aaa\"aaa"') == 7
+
+def run(inp):
+    n = 0
+    for s in inp.strip().splitlines():
+        print(f'line {s}: {len(s)}; {count1(s)}')
+        n += len(s) - count1(s)
+    return n
+
+run(example_input)
+
+real_input = open('inputs/day08.input.txt').read()
+
+run(real_input)  # 1505 is too high!
