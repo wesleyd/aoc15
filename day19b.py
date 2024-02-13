@@ -55,4 +55,4 @@ assert run_backwards(example_rules, example_goal) == 6
 
 real_input = open('inputs/day19.input.txt').read()
 real_rules, real_goal = parse(real_input)
-run_backwards(real_rules, real_goal)  # => 212
+print(run_backwards(real_rules, real_goal))  # => 212
