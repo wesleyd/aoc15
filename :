@@ -1,0 +1,45 @@
+#!/usr/bin/env python3
+
+import re
+
+example_input = """
+inc a
+jio a, +2
+tpl a
+inc a
+"""
+
+def parse(inp):
+    instructions = []
+    for line in inp.strip().splitlines():
+        instructions.append(re.split(r',? ', line))
+    return instructions
+parse(example_input)
+
+def CPU:
+    def __init__(self):
+        self.reg = {}
+        self.reg['a'] = 0
+        self.reg['b'] = 0
+        self.pc = 0
+
+def run1(cpu, instr):
+    op, r = instr[0], instr[1]
+    if len(instr) > 1:
+        offset = int(instr[2])
+    match op:
+        case 'hlf':
+            cpu.reg[r] //= 2
+            cpu.pc += 1
+        case 'tpl':
+            cpu.reg[r] *= 3
+            cpu.pc += 1
+        case 'inc':
+            cpu.reg[r] += 1
+            cpu.pc += 1
+        case 'jmp':
+            offset = int(r)
+            cpu.pc += offset
+        case 'jie':
+            if cpu.reg[r] % 2 == 0:
+                cpu.pc += offset
